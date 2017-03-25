@@ -7,6 +7,12 @@ const morgan = require('morgan');
 const router = require('./router');
 //instance of app
 const app = express();
+const mongoose = require('mongoose');
+
+// DB Setup - creates new database in mongoDB called auth
+mongoose.connect('mongodb://localhost:auth/auth');
+
+
 
 // App Setup - express working the way we want it to
 // middleware in express 
