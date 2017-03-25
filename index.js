@@ -4,7 +4,7 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-
+const router = require('./router');
 //instance of app
 const app = express();
 
@@ -12,6 +12,7 @@ const app = express();
 // middleware in express 
 app.use(morgan('combined')); // used for debugging
 app.use(bodyParser.json({ type: '*/*'})); //anything coming in will be parsed with json
+router(app);
 
 
 
