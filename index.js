@@ -8,6 +8,7 @@ const router = require('./router');
 //instance of app
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // DB Setup - creates new database in mongoDB called auth
 mongoose.connect('mongodb://localhost:auth/auth');
@@ -17,6 +18,7 @@ mongoose.connect('mongodb://localhost:auth/auth');
 // App Setup - express working the way we want it to
 // middleware in express 
 app.use(morgan('combined')); // used for debugging
+app.use(cors()); // make sure request is coming from acceptable domain
 app.use(bodyParser.json({ type: '*/*'})); //anything coming in will be parsed with json
 router(app);
 
